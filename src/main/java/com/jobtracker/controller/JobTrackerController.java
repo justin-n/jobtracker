@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JobTrackerController {
 
-    @GetMapping("/helloworld")
+    @GetMapping(value="/rest/helloworld")
     public String helloWorld() {
         return "hello world";
     }
-
 }
