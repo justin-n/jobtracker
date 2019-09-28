@@ -2,3 +2,5 @@
 /.idea/
 
 jobtracker.iml
+
+/src/main/webapp/angularapp/*
