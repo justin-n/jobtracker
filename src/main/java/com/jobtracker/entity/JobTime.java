@@ -23,6 +23,9 @@ public class JobTime {
     @Column(name="time_out", nullable=false)
     private Date timeOut;
 
+    @Column(name="comment")
+    private String comment;
+
     public JobTime() { }
 
     public Long getId() {
@@ -41,6 +44,10 @@ public class JobTime {
         return timeOut;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -55,5 +62,9 @@ public class JobTime {
 
     public void setTimeOut(Date timeOut) {
         this.timeOut = timeOut;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
