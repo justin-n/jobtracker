@@ -1,9 +1,7 @@
 package com.jobtracker;
 
-import com.jobtracker.config.WelcomeFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
 import javax.servlet.ServletRegistration.Dynamic;
 
 public class JobTrackerWebAppInitializer
@@ -22,11 +20,6 @@ public class JobTrackerWebAppInitializer
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class<?>[] { com.jobtracker.config.WebConfig.class };
-    }
-
-    @Override
-    protected Filter[] getServletFilters() {
-        return new Filter[] { new WelcomeFilter() };
     }
 
     @Override
