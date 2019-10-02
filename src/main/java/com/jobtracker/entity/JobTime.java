@@ -17,6 +17,9 @@ public class JobTime {
     @Column(name="jt_user", length=32, nullable=false)
     private String user;
 
+    @Column(name="job_name", nullable=false)
+    private String jobName;
+
     @Column(name="time_in", nullable=false)
     private Date timeIn;
 
@@ -34,6 +37,10 @@ public class JobTime {
 
     public String getUser() {
         return user;
+    }
+
+    public String getJobName() {
+        return jobName;
     }
 
     public Date getTimeIn() {
@@ -54,6 +61,10 @@ public class JobTime {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 
     public void setTimeIn(Date timeIn) {
