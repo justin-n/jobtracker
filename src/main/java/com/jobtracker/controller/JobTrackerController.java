@@ -5,7 +5,7 @@ import com.jobtracker.service.JobTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -38,7 +38,7 @@ public class JobTrackerController {
         return jobTimeService.getAllJobTimesFromWeek(firstDayOfWeek);
     }
 
-    @RequestMapping("/user")
+    @PostMapping("/rest/principal")
     public Principal user(Principal user) {
         return user;
     }

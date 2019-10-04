@@ -18,17 +18,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
             .and()
                 .authorizeRequests()
+                    .antMatchers("/", "/login", "/*.html", "/*.js", "/rest/principal")
+                        .permitAll()
                     .antMatchers("/rest/**")
-                    .access("hasAnyRole('BOSS', 'EMPLOYEE')")
+                        .access("hasAnyRole('BOSS', 'EMPLOYEE')")
             .and()
                 .csrf().disable();
 
     }
-
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/angularapp/**").anyRequest();
-//    }
 
     @Bean
     public UserDetailsService userDetailsService() {
