@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
             .and()
                 .authorizeRequests()
-                    .antMatchers("/", "/login", "/*.html", "/*.js", "/rest/principal")
+                    .antMatchers("/", "/login", "/*.html", "/*.js")
                         .permitAll()
                     .antMatchers("/rest/**")
                         .access("hasAnyRole('BOSS', 'EMPLOYEE')")
@@ -29,11 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-            .username("user")
-            .password("password")
-            .roles("BOSS", "EMPLOYEE")
-            .build();
-        return new InMemoryUserDetailsManager(user);
+
+        UserDetails boss =
+            User.withUsername("boss").password("{noop}pass").roles("BOSS").build();
+
+        UserDetails empl =
+            User.withUsername("empl").password("{noop}pass").roles("EMPLOYEE").build();
+
+        return new InMemoryUserDetailsManager(boss, empl);
     }
 }
