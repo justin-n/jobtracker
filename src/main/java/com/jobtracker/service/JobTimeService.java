@@ -33,8 +33,13 @@ public class JobTimeService {
     }
 
     public List<JobTime> getAllJobTimesFromWeek(String firstDayOfWeek) {
+
         List<JobTime> jobTimes = new ArrayList<>();
         jobTimeRepository.findAll().forEach(jobTimes::add);
         return DateUtil.getJobTimesWithinMondayWeek(jobTimes, firstDayOfWeek);
+    }
+
+    public void addJobTime(JobTime jobTime) {
+        jobTimeRepository.save(jobTime);
     }
 }

@@ -3,14 +3,17 @@ package com.jobtracker.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Entity(name="job_time")
 public class JobTime {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="job_time_id")
     private Long id;
 
@@ -20,9 +23,11 @@ public class JobTime {
     @Column(name="job_name", nullable=false)
     private String jobName;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="time_in", nullable=false)
     private Date timeIn;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="time_out", nullable=false)
     private Date timeOut;
 
