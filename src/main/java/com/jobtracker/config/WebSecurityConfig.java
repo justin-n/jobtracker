@@ -31,10 +31,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService() {
 
         UserDetails boss =
-            User.withUsername("boss").password("{noop}pass").roles("BOSS").build();
+            User.withUsername("MASTER").password("{noop}pass").roles("BOSS").build();
 
         UserDetails empl =
-            User.withUsername("empl").password("{noop}pass").roles("EMPLOYEE").build();
+            User.withUsername("FIRST_USER").password("{noop}pass").roles("EMPLOYEE").build();
 
         return new InMemoryUserDetailsManager(boss, empl);
     }
